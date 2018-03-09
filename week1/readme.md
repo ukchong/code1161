@@ -12,3 +12,5 @@ hob mouse over words in test file to get definitions and functions
 Current function in tests.py returns green thick, if there is a single input without any meaning. I don't think tutors have enough time to go through every students readme.md
 I am not sure about 'If' Condition function use
 Enough for today
+
+Python scripts are Case Sensitive
