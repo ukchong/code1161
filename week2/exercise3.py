@@ -7,7 +7,16 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+    integer = 100
+
+    if a_number / 2 != integer:
+        #divide a_number by two and results to be pended by two factors. integer or rest.
+        #Need to define integer. I can define the integer and set its neumerical identitiy by stating "integer = 100". 
+        # I would state "float = 1000.0" if I need to define float 
+        # but it is not necessary in this case as I only need to consider "one or the rest" scenario.
+        return "True"
+    else:
+        return "False"
 
 
 def fix_it(moves=True, should_move=True):
@@ -21,7 +30,12 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    pass
+    if True, False:
+        return "Duct Tape"
+    elif False, True:
+        return "WD-40"
+    else:
+        return "No Problem"
 
 
 def loops_1a():
