@@ -42,12 +42,10 @@ def fix_it(moves=True, should_move=True):
 
 def loops_1a():
     list = []
-    i = 0
-    for i in range (0,10):
-        list.append("'*' ")
-        i +=1
-        
+    for i in range (10):
+        list.append('*')
     return list
+    
     
     
 
@@ -75,11 +73,9 @@ def loops_1a():
 
 def loops_1c(number_of_items=5, symbol="#"):
     list=[]
-    i=0
-    for i in range(0, int(number_of_items+1)):
-        i +=1
-        list.append(symbol+" ")
     
+    for i in range(int(number_of_items)):
+        list.append(symbol)
     return list
     
 
@@ -112,14 +108,10 @@ def loops_2():
           ]
     """
     list1=[]
-    i=0
-    for i in range(0, 10):
-        i+=1
-        list1.append("'*'" + " ")
+    for i in range(10):
+        list1.append("*")
     list2 = []
-    x=0
-    for x in range(0, 10):
-        x+=1
+    for x in range(10):
         list2.append(list1)
     return list2
     #pass
@@ -147,13 +139,10 @@ def loops_3():
          so call str(number) to cast.
     """
     list1=[]
-    i=0
-    for i in range(0, 10):
-        list1.append(str(i)+" ")
+    for i in range(10):
+        list1.append(str(0)+" ")
     list2 = []
-    x=0
     for x in range(0, 10):
-        x+=1
         list2.append(list1)
     return list2
     #pass
@@ -179,12 +168,9 @@ def loops_4():
     list1=[]
     i=0
     for i in range(0, 10):
-        i+=1
-        list1.append(str(i)+" ")
+        list1.append(str(i))
     list2 = []
-    x=0
     for x in range(0, 10):
-        x+=1
         list2.append(list1)
     return list2
     #pass
@@ -212,10 +198,16 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    #pass
 
 
 def loops_6():
+    list = []
+    for i in range (0, 10):
+        list.append(str(i))
+        print(list)
+    return list 
+
 
     """Make a wedge of numbers.
 
@@ -236,14 +228,8 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    list = []
-    i = 0
-    for i in range (0, 10):
-        list.append(str(i))
-        print(list)
-        i += 1
     
-    return list 
+
     #pass
 
 
