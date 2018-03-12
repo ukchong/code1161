@@ -17,7 +17,7 @@ def is_odd(a_number):
         return "True"
     else:
         return "False"
-
+5
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -35,10 +35,9 @@ def fix_it(moves=True, should_move=True):
             return "No Problem"
         else:
             return "Duct Tape"
-    else:
-        if should_move:
+    elif should_move:
             return "WD-40"
-        else:
+    else:
             return "No Problem"
 
 
@@ -53,14 +52,15 @@ def loops_1a():
     print(list)
     
 
-    """ ls()
+    """ 
+    ls()
     x = 0
     for x in range (0, 10):
         ls() = list.append(x)
         x += 1
     return ls(x)
     print ls(x)
-    print('*', '*', '*', '*', '*', '*', '*', '*', '*', '*')"""
+    """
 
 
 """Make 10 stars.
@@ -75,6 +75,15 @@ def loops_1a():
 
 
 def loops_1c(number_of_items=5, symbol="#"):
+    list=[]
+    i = 0
+    for i in range(0, number_of_items):
+        list.append(symbol)
+        i +=1
+
+    return loops_1c
+    
+
     """Respond to variables.
 
     using any method
@@ -267,7 +276,7 @@ if __name__ == "__main__":
     print(fix_it(False, True))
     print(fix_it(False, False))
     lp(loops_1a(), "loops_1a")
-    #lp(loops_1c(4, "×°×"), "loops_1c")
+    lp(loops_1c(4, "×°×"), "loops_1c")
     #lp(loops_2(), "loops_2")
     #lp(loops_3(), "loops_3")
     #lp(loops_4(), "loops_4")
