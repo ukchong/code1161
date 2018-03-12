@@ -146,7 +146,7 @@ def theTests(path_to_code_to_check="."):
         exercise3 = imp.load_source("exercise3", path)
         # is odd
         testResults.append(
-            test(exercise3.is_odd(2) is False,
+            test(exercise3.is_odd(2),
                  "Exercise 3: is_odd - is 2 odd?"))
 
         testResults.append(

@@ -7,8 +7,16 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+    """integer = 100"""
 
+    if a_number % 2 != 0:
+        #divide a_number by two and results to be pended by two factors. integer or rest.
+        #Need to define integer. I can define the integer and set its neumerical identitiy by stating "integer = 100". 
+        # I would state "float = 1000.0" if I need to define float 
+        # but it is not necessary in this case as I only need to consider "one or the rest" scenario.
+        return "True"
+    else:
+        return "False"
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -21,21 +29,56 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    pass
+    if moves:
+        if should_move:
+            return "No Problem"
+        else:
+            return "Duct Tape"
+    elif should_move:
+            return "WD-40"
+    else:
+            return "No Problem"
 
 
 def loops_1a():
-    """Make 10 stars.
+    list = []
+    for i in range (10):
+        list.append('*')
+    return list
+    
+    
+    
 
+    """ 
+    ls()
+    x = 0
+    for x in range (0, 10):
+        ls() = list.append(x)
+        x += 1
+    return ls(x)
+    print ls(x)
+    """
+
+
+"""Make 10 stars.
     Using a for loop
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    pass
+
+
+    # pass
 
 
 
 def loops_1c(number_of_items=5, symbol="#"):
+    list=[]
+    
+    for i in range(int(number_of_items)):
+        list.append(symbol)
+    return list
+    
+
     """Respond to variables.
 
     using any method
@@ -43,7 +86,7 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    #pass
 
 
 def loops_2():
@@ -64,7 +107,14 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    list1=[]
+    for i in range(10):
+        list1.append("*")
+    list2 = []
+    for x in range(10):
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_3():
@@ -88,7 +138,14 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    list1=[]
+    for i in range(10):
+        list1.append(str(0)+" ")
+    list2 = []
+    for x in range(0, 10):
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_4():
@@ -108,7 +165,15 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    list1=[]
+    i=0
+    for i in range(0, 10):
+        list1.append(str(i))
+    list2 = []
+    for x in range(0, 10):
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_5():
@@ -133,10 +198,17 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    #pass
 
 
 def loops_6():
+    list = []
+    for i in range (0, 10):
+        list.append(str(i))
+        print(list)
+    return list 
+
+
     """Make a wedge of numbers.
 
     Return this:
@@ -156,7 +228,9 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    
+
+    #pass
 
 
 def loops_7():
@@ -212,15 +286,15 @@ if __name__ == "__main__":
     # code is robust to the situations that you'll see in action.
     print(is_odd(1), "is_odd odd")
     print(is_odd(4), "is_odd even")
-    print(fix_it(True, True), "fix_it")
-    print(fix_it(True, False), "fix_it")
-    print(fix_it(False, True), "fix_it")
-    print(fix_it(False, False), "fix_it")
+    print(fix_it(True, True))
+    print(fix_it(True, False))
+    print(fix_it(False, True))
+    print(fix_it(False, False))
     lp(loops_1a(), "loops_1a")
     lp(loops_1c(4, "×°×"), "loops_1c")
     lp(loops_2(), "loops_2")
     lp(loops_3(), "loops_3")
     lp(loops_4(), "loops_4")
-    lp(loops_5(), "loops_5")
+    #lp(loops_5(), "loops_5")
     lp(loops_6(), "loops_6")
-    lp(loops_7(), "loops_7")
+    #lp(loops_7(), "loops_7")
