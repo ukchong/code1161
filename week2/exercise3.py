@@ -17,7 +17,6 @@ def is_odd(a_number):
         return "True"
     else:
         return "False"
-5
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -49,7 +48,7 @@ def loops_1a():
         i +=1
         
     return list
-    print(list)
+    
     
 
     """ 
@@ -76,12 +75,12 @@ def loops_1a():
 
 def loops_1c(number_of_items=5, symbol="#"):
     list=[]
-    i = 0
-    for i in range(0, number_of_items):
-        list.append(symbol)
+    i=0
+    for i in range(0, int(number_of_items+1)):
         i +=1
-
-    return loops_1c
+        list.append(symbol+" ")
+    
+    return list
     
 
     """Respond to variables.
@@ -91,7 +90,7 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    #pass
 
 
 def loops_2():
@@ -112,7 +111,18 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    list1=[]
+    i=0
+    for i in range(0, 10):
+        i+=1
+        list1.append("'*'" + " ")
+    list2 = []
+    x=0
+    for x in range(0, 10):
+        x+=1
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_3():
@@ -136,7 +146,17 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    list1=[]
+    i=0
+    for i in range(0, 10):
+        list1.append(str(i)+" ")
+    list2 = []
+    x=0
+    for x in range(0, 10):
+        x+=1
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_4():
@@ -156,7 +176,18 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    list1=[]
+    i=0
+    for i in range(0, 10):
+        i+=1
+        list1.append(str(i)+" ")
+    list2 = []
+    x=0
+    for x in range(0, 10):
+        x+=1
+        list2.append(list1)
+    return list2
+    #pass
 
 
 def loops_5():
@@ -185,16 +216,6 @@ def loops_5():
 
 
 def loops_6():
-    list = []
-    i = 0
-    for i in range (0, 10):
-        list.append(str(i))
-        print(list)
-        i += 1
-    
-    return list 
-
-
 
     """Make a wedge of numbers.
 
@@ -215,7 +236,15 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    list = []
+    i = 0
+    for i in range (0, 10):
+        list.append(str(i))
+        print(list)
+        i += 1
+    
+    return list 
+    #pass
 
 
 def loops_7():
@@ -269,17 +298,17 @@ if __name__ == "__main__":
     # It's NOT the official tests, they are in tests.py as usual.
     # Add to these tests, give them arguments etc. to make sure that your
     # code is robust to the situations that you'll see in action.
-    #print(is_odd(1), "is_odd odd")
-    #print(is_odd(4), "is_odd even")
+    print(is_odd(1), "is_odd odd")
+    print(is_odd(4), "is_odd even")
     print(fix_it(True, True))
     print(fix_it(True, False))
     print(fix_it(False, True))
     print(fix_it(False, False))
     lp(loops_1a(), "loops_1a")
     lp(loops_1c(4, "×°×"), "loops_1c")
-    #lp(loops_2(), "loops_2")
-    #lp(loops_3(), "loops_3")
-    #lp(loops_4(), "loops_4")
+    lp(loops_2(), "loops_2")
+    lp(loops_3(), "loops_3")
+    lp(loops_4(), "loops_4")
     #lp(loops_5(), "loops_5")
     lp(loops_6(), "loops_6")
     #lp(loops_7(), "loops_7")
