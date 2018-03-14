@@ -138,13 +138,15 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    list1=[]
-    for i in range(10):
-        list1.append(str(0)+" ")
-    list2 = []
-    for x in range(0, 10):
-        list2.append(list1)
-    return list2
+    
+
+    myReturnList = []
+    for counter in range(10):
+        tempList=[]
+        for i in range(10):
+            tempList.append(str(counter))
+        myReturnList.append(tempList)
+    return myReturnList
     #pass
 
 
@@ -198,6 +200,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
+    # my_return_list=[]
+    # for counter in range(2):
+    #     my_temp_list=[]
+    #     for counter2 in range(10):
+    #         to_append = "(i" = str(counter) + ", j" + str(counter2) + ")"
+    #         my_temp_list.append(to_append)
+    #     print(to_append)
+    #     return my_return_list.append(my_temp_list)    
     #pass
 
 

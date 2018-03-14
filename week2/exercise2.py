@@ -18,7 +18,7 @@ def week2exersise2():
     
     for index in indices:
         wordArray.append(getLetter(index))
-            
+         
     wordArray[0] == wordArray[0].upper()
     wordArray[1] == wordArray[1].upper()
     wordArray[4] == wordArray[4].upper()
