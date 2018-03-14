@@ -12,7 +12,12 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    pass
+    list1 = []
+    for i in range (start, stop, step):
+        list1.append(str(i))
+    return list1
+
+    # pass
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +25,11 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    pass
+    list2 = []
+    for i in range (start, stop, step):
+        list2.append(str(i))
+    return list2
+    # pass
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +38,11 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    pass
+    list3 = []
+    for i in range(start, stop, 2):
+        list3.append(str(i))
+    return list3
+    # pass
 
 
 def stubborn_asker(low, high):
@@ -38,6 +51,7 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
+
     pass
 
 
