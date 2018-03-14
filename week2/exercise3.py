@@ -200,14 +200,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    # my_return_list=[]
-    # for counter in range(2):
-    #     my_temp_list=[]
-    #     for counter2 in range(10):
-    #         to_append = "(i" = str(counter) + ", j" + str(counter2) + ")"
-    #         my_temp_list.append(to_append)
-    #     print(to_append)
-    #     return my_return_list.append(my_temp_list)    
+    my_return_list=[]
+    for counter in range(10):
+        my_temp_list=[]
+        for counter2 in range(5):
+            to_append = "(i" = str(counter) + ", j" + str(counter2) + ")"
+            my_temp_list.append(to_append)
+        print(to_append)
+        return my_return_list.append(my_temp_list)    
     #pass
 
 
