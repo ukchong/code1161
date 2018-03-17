@@ -51,8 +51,33 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
+    # while True:
+    #     print("Enter a number")
+    #         actualNumber = int(input("Please enter any number"))
+    #     except ValueError:
+    #         print ("Sorry not a valid input")
+    #         continue
+    #     else:
+    #         break
+    
+    # if actualNumber < low:
+    #     print("Give another number")
+    # elif actualNumber > high:
+    #     print ("Give another number")
+    # else:
+    #     print("You got the number")
 
-    pass
+    while True:
+        print('Type a number')
+        number = int(input())
+        if number <= low:
+            print('Please type a number bigger than that')
+        elif number >= high:
+            print('Please type a number smaller than that')
+        else:
+            return guess
+
+    # pass
 
 
 def not_number_rejector(message):
@@ -62,6 +87,7 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+
     pass
 
 
