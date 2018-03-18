@@ -72,10 +72,13 @@ def stubborn_asker(low, high):
         number = int(input())
         if number <= low:
             print('Please type a number bigger than that')
+            
         elif number >= high:
             print('Please type a number smaller than that')
+            
         else:
-            return guess
+            return number
+            
 
     # pass
 
@@ -88,7 +91,16 @@ def not_number_rejector(message):
     When you do get a number, return it.
     """
 
-    pass
+    while True:
+        try:
+            actualNumber = int(input("Enter a number: "))
+        except ValueError:
+            print("Not a number, input a number.")
+            continue
+        else:
+            return actualNumber
+            break
+    # pass
 
 
 def super_asker(low, high):
@@ -97,7 +109,25 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    while True:
+        try:
+            finalNumber = int(input("Enter a number: "))
+        except ValueError:
+            print("Sorry, I didn't understand that.")
+            #Try again-Return to the start of the loop
+            continue
+        else:
+            if finalNumber <= low:
+                print('Please type a number bigger than that')
+                continue
+            elif finalNumber >= high:
+                print('Please type a number smaller than that')
+                continue
+            else:
+                return finalNumber
+            break
+
+#     pass
 
 
 if __name__ == "__main__":
