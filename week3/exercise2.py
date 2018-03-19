@@ -6,7 +6,10 @@ An example of how a guessing game might be written.
 
 import random
 
-
+#This function gives me an error when I have assigned -5 or x into upperbound.
+#We need to restrain users to input valid value and type
+#Having negative value or bigger value which exceed the upperbound are accepted but strings cannot be tolerated by Valueerror
+#Function needs to restrain users to input valid type
 def exampleGuessingGame():
     """Play a game with the user.
 
