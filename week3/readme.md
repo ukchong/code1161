@@ -40,4 +40,8 @@ Exercise 2
 
 
 Exercise 3
-    
+
+Exercise 4
+    Scenario
+        If False: Count the number (i+=)
+        If True: Break out of loof

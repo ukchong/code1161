@@ -99,7 +99,7 @@ def not_number_rejector(message):
             continue
         else:
             return actualNumber
-            break
+        break
     # pass
 
 
