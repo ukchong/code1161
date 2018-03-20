@@ -1,6 +1,6 @@
+
 # -*- coding: UTF-8 -*-
 """Run the tests.
-
 This file tests your code. It'll check that the work in each
 of the exercise files does what it's supposed to.
 """
@@ -78,7 +78,6 @@ def test_super_asker(path, low, high):
 
 def test_example_guessingGame(path):
     """Test the example_guessingGame function.
-
     This should always pass becasue it's provided code
     """
     try:
@@ -115,7 +114,6 @@ def test_advanced_guessingGame(path, mockInputs):
 
 def test_binary_search(path, low, high, actual):
     """Test the binary search function.
-
     checks to see that it's searching better than O(log n)
     """
     try:
@@ -169,7 +167,6 @@ E.g. if your range is 16, then the worst case is 4 guesses: 2×2×2×2 = 16
 Think back to when you were playing the game with your brain, sometimes
 you'd go over the worst case because you aren't a perfect arithmatic
 machine but the computer is, so it's always below that worst case limit.
-
             Close the histogram to finish running the tests.""")
     plt.show()
 
@@ -320,8 +317,8 @@ def theTests(path_to_code_to_check="."):
         # if the binary search is working, show a graph of guess numbers
         if test(test_binary_search(path_to_code_to_check, 1, 10, 5), ""):
             # If you aren't Ben, then show the histogram
-            if os.uname()[1] != "um":  # um is ben's computer
-                vis_binary_search_performance()
+            # if os.uname()[1] != "um":  # um is ben's computer
+            print("binary search works!")
 
     print("{0}/{1} (passed/attempted)".format(sum(testResults),
                                               len(testResults)))

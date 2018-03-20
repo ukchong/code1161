@@ -14,7 +14,7 @@ def loop_ranger(start, stop=None, step=1):
     """
     list1 = []
     for i in range (start, stop, step):
-        list1.append(str(i))
+        list1.append(i)
     return list1
 
     # pass
@@ -27,7 +27,7 @@ def lone_ranger(start, stop, step):
     """
     list2 = []
     for i in range (start, stop, step):
-        list2.append(str(i))
+        list2.append(i)
     return list2
     # pass
 
@@ -40,7 +40,7 @@ def two_step_ranger(start, stop):
     """
     list3 = []
     for i in range(start, stop, 2):
-        list3.append(str(i))
+        list3.append(i)
     return list3
     # pass
 
@@ -93,7 +93,7 @@ def not_number_rejector(message):
 
     while True:
         try:
-            actualNumber = int(input("Enter a number: "))
+            actualNumber = input("Enter a number: ")
         except ValueError:
             print("Not a number, input a number.")
             continue
@@ -111,12 +111,8 @@ def super_asker(low, high):
     """
     while True:
         try:
-            finalNumber = int(input("Enter a number: "))
-        except ValueError:
-            print("Sorry, I didn't understand that.")
-            #Try again-Return to the start of the loop
-            continue
-        else:
+            finalNumber = int(input())
+
             if finalNumber <= low:
                 print('Please type a number bigger than that')
                 continue
@@ -126,6 +122,11 @@ def super_asker(low, high):
             else:
                 return finalNumber
             break
+
+        except Exception as e:
+            print("Sorry, I didn't understand that.")
+            #Try again-Return to the start of the loop
+            continue
 
 #     pass
 

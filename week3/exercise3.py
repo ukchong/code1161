@@ -33,38 +33,38 @@ def advancedGuessingGame():
     while True:
       try:
         lowerBound = int(input("Enter an lower bound: "))
-      except ValueError:
-        print("Sorry, not a valid input. Please enter a number.")
+        
+      except Exception as e:
+        print("1. Sorry, not a valid input. Please enter a number.")
         continue
       else:
         print("OK then, a number between {} and 20 ?".format(lowerBound))
         lowerBound = int(lowerBound)
         break
 
-    actualNumber = random.randint(lowerBound, 20)
+      actualNumber = random.randint(lowerBound, 20)
 
-    guessed = False
+      guessed = False
 
-    while not guessed:
-      try:
-        guessedNumber = int(input("guess a number: "))
-      except ValueError:
-        print("Sorry, not a valid input. Please enter a number.")
-        continue
-      else:
-        print("you guessed {},".format(guessedNumber),)
+      while not guessed:
+        try:
+          guessedNumber = int(input("guess a number: "))
+        except Exception as e:
+          print("2. Sorry, not a valid input. Please enter a number.")
+          continue
+        
+          print("you guessed {},".format(guessedNumber))
+        if guessedNumber < actualNumber:
+          print("too small, try again")
+          continue
+        elif guessedNumber > actualNumber:
+          print("too big, try again")
+          continue
         if guessedNumber == actualNumber:
           print("you got it!! It was {}".format(actualNumber))
           guessed = True
           break
-        elif guessedNumber < actualNumber:
-          print("too small, try again ")
-          continue
-        else:
-          print("too big, try again   ")
-          continue
-
-        return "You got it!"
+      return "You got it!"
 
 
 if __name__ == "__main__":

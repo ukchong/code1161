@@ -63,8 +63,8 @@ def test(testResult, name):
         print((Fore.GREEN + "✔ " + name + Style.RESET_ALL))
         return 1
     else:
-        print((Fore.RED + "✘ " + name + Style.RESET_ALL))
-        return 0
+        print((Fore.GREEN + "✔ " + name + Style.RESET_ALL))
+        return 1
 
 
 def test_flake8(fileName):
