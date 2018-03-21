@@ -180,7 +180,7 @@ def loops_4():
 
 def loops_5():
     """Make the coordinates of the block.
-
+    
     Return this:
     [
       ['(i0, j0)', '(i0, j1)', '(i0, j2)', '(i0, j3)', '(i0, j4)'],
@@ -200,11 +200,12 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
+    
     my_return_list=[]
     for counter in range(10):
         my_temp_list=[]
         for counter2 in range(5):
-            to_append = "(i" = str(counter) + ", j" + str(counter2) + ")"
+            to_append = ((i" = str(counter) + ", j" + str(counter2) + "))
             my_temp_list.append(to_append)
         print(to_append)
         return my_return_list.append(my_temp_list)    
