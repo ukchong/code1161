@@ -19,4 +19,16 @@ my_dict = {"key" : value}
 my_nested_dict = {"Name" : {"Last_Name" : "Kerr", "First_Name" : "Ewan"}, 
                             {"Date of Birth" : {"Day" : 4, "Month" : "November"}
                             }
-    print(my_nested_dict["Date of Birth"])
+print(my_nested_dict["Date of Birth"])
+
+
+import json
+
+#json.dumps means write in json
+#Workflow looks like you write your dict into json format
+#
+
+
+import requests
+import webbrowser
+
