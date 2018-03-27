@@ -65,8 +65,12 @@ words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote cr
 
 def getRandomWord(wordList):
     # This function returns a random string from the passed list of strings.
-    wordIndex = random.randint(0, len(wordList) - 1)
-    return wordList[wordIndex]
+    # wordIndex = random.randint(0, len(wordList) - 1)
+    # return wordList[wordIndex]
+    url = "http://api.wordnik...."
+    r=requests.get(url)
+    response_json = json.loads(r.text)
+    return response_json [0]['word']
 
 
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
