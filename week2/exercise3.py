@@ -178,94 +178,94 @@ def loops_4():
     #pass
 
 
-def loops_5():
-    """Make the coordinates of the block.
+# def loops_5():
+#     """Make the coordinates of the block.
     
-    Return this:
-    [
-      ['(i0, j0)', '(i0, j1)', '(i0, j2)', '(i0, j3)', '(i0, j4)'],
-      ['(i1, j0)', '(i1, j1)', '(i1, j2)', '(i1, j3)', '(i1, j4)'],
-      ['(i2, j0)', '(i2, j1)', '(i2, j2)', '(i2, j3)', '(i2, j4)'],
-      ['(i3, j0)', '(i3, j1)', '(i3, j2)', '(i3, j3)', '(i3, j4)'],
-      ['(i4, j0)', '(i4, j1)', '(i4, j2)', '(i4, j3)', '(i4, j4)'],
-      ['(i5, j0)', '(i5, j1)', '(i5, j2)', '(i5, j3)', '(i5, j4)'],
-      ['(i6, j0)', '(i6, j1)', '(i6, j2)', '(i6, j3)', '(i6, j4)'],
-      ['(i7, j0)', '(i7, j1)', '(i7, j2)', '(i7, j3)', '(i7, j4)'],
-      ['(i8, j0)', '(i8, j1)', '(i8, j2)', '(i8, j3)', '(i8, j4)'],
-      ['(i9, j0)', '(i9, j1)', '(i9, j2)', '(i9, j3)', '(i9, j4)']
-    ]
-    you can construct strings either by concatinating them:
-        "There are " + str(8) + " green bottles"
-    or by using format:
-        "There are {} green bottles".format(8)
-    you'll come to see the pros and cons of each over time.
-    """
+#     Return this:
+#     [
+#       ['(i0, j0)', '(i0, j1)', '(i0, j2)', '(i0, j3)', '(i0, j4)'],
+#       ['(i1, j0)', '(i1, j1)', '(i1, j2)', '(i1, j3)', '(i1, j4)'],
+#       ['(i2, j0)', '(i2, j1)', '(i2, j2)', '(i2, j3)', '(i2, j4)'],
+#       ['(i3, j0)', '(i3, j1)', '(i3, j2)', '(i3, j3)', '(i3, j4)'],
+#       ['(i4, j0)', '(i4, j1)', '(i4, j2)', '(i4, j3)', '(i4, j4)'],
+#       ['(i5, j0)', '(i5, j1)', '(i5, j2)', '(i5, j3)', '(i5, j4)'],
+#       ['(i6, j0)', '(i6, j1)', '(i6, j2)', '(i6, j3)', '(i6, j4)'],
+#       ['(i7, j0)', '(i7, j1)', '(i7, j2)', '(i7, j3)', '(i7, j4)'],
+#       ['(i8, j0)', '(i8, j1)', '(i8, j2)', '(i8, j3)', '(i8, j4)'],
+#       ['(i9, j0)', '(i9, j1)', '(i9, j2)', '(i9, j3)', '(i9, j4)']
+#     ]
+#     you can construct strings either by concatinating them:
+#         "There are " + str(8) + " green bottles"
+#     or by using format:
+#         "There are {} green bottles".format(8)
+#     you'll come to see the pros and cons of each over time.
+#     """
     
-    my_return_list=[]
-    for counter in range(10):
-        my_temp_list=[]
-        for counter2 in range(5):
-            to_append = ((i" = str(counter) + ", j" + str(counter2) + "))
-            my_temp_list.append(to_append)
-        print(to_append)
-        return my_return_list.append(my_temp_list)    
-    #pass
+#     my_return_list=[]
+#     for counter in range(10):
+#         my_temp_list=[]
+#         for counter2 in range(5):
+#             to_append = ((i = "str(counter) + ", j" + str(counter2) + "))
+#             my_temp_list.append(to_append)
+#         print(to_append)
+#         return my_return_list.append(my_temp_list)    
+#     #pass
 
 
-def loops_6():
-    list = []
-    for i in range (0, 10):
-        list.append(str(i))
-        print(list)
-    return list 
+# def loops_6():
+#     list = []
+#     for i in range (0, 10):
+#         list.append(str(i))
+#         print(list)
+#     return list 
 
 
-    """Make a wedge of numbers.
+#     """Make a wedge of numbers.
 
-    Return this:
-    [
-      ['0'],
-      ['0', '1'],
-      ['0', '1', '2'],
-      ['0', '1', '2', '3'],
-      ['0', '1', '2', '3', '4'],
-      ['0', '1', '2', '3', '4', '5'],
-      ['0', '1', '2', '3', '4', '5', '6'],
-      ['0', '1', '2', '3', '4', '5', '6', '7'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    ]
-    you don't have to use a literal number in the range function.
-    You can use a variable.
-    TIP: look out for the starting condition.
-    """
+#     Return this:
+#     [
+#       ['0'],
+#       ['0', '1'],
+#       ['0', '1', '2'],
+#       ['0', '1', '2', '3'],
+#       ['0', '1', '2', '3', '4'],
+#       ['0', '1', '2', '3', '4', '5'],
+#       ['0', '1', '2', '3', '4', '5', '6'],
+#       ['0', '1', '2', '3', '4', '5', '6', '7'],
+#       ['0', '1', '2', '3', '4', '5', '6', '7', '8'],
+#       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+#     ]
+#     you don't have to use a literal number in the range function.
+#     You can use a variable.
+#     TIP: look out for the starting condition.
+#     """
     
 
-    #pass
+#     #pass
 
 
-def loops_7():
-    """Make a pyramid.
+# def loops_7():
+#     """Make a pyramid.
 
-    Return this:
-    [
-        [' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' '],
-        [' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' '],
-        [' ', ' ', '*', '*', '*', '*', '*', ' ', ' '],
-        [' ', '*', '*', '*', '*', '*', '*', '*', ' '],
-        ['*', '*', '*', '*', '*', '*', '*', '*', '*']
-    ]
-    or in more simple terms:
-            *
-          * * *
-        * * * * *
-      * * * * * * *
-    * * * * * * * * *
-    (this is what will print when you test from inside this file)
-    This is a hard problem. Use lots of experimentation and draw
-    lots of diagrams!
-    """
-    pass
+#     Return this:
+#     [
+#         [' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' '],
+#         [' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' '],
+#         [' ', ' ', '*', '*', '*', '*', '*', ' ', ' '],
+#         [' ', '*', '*', '*', '*', '*', '*', '*', ' '],
+#         ['*', '*', '*', '*', '*', '*', '*', '*', '*']
+#     ]
+#     or in more simple terms:
+#             *
+#           * * *
+#         * * * * *
+#       * * * * * * *
+#     * * * * * * * * *
+#     (this is what will print when you test from inside this file)
+#     This is a hard problem. Use lots of experimentation and draw
+#     lots of diagrams!
+#     """
+#     pass
 
 
 def lp(some_kind_of_list, exercise_name):

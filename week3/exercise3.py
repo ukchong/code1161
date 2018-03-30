@@ -33,14 +33,11 @@ def advancedGuessingGame():
     while True:
       try:
         lowerBound = int(input("Enter an lower bound: "))
-        
       except Exception as e:
         print("1. Sorry, not a valid input. Please enter a number.")
         continue
       else:
         print("OK then, a number between {} and 20 ?".format(lowerBound))
-        lowerBound = int(lowerBound)
-        break
 
       actualNumber = random.randint(lowerBound, 20)
 
