@@ -19,6 +19,16 @@ def is_odd(a_number):
         return "False"
 
 def fix_it(moves=True, should_move=True):
+    # if moves:
+    #     if should_move:
+    #         return "No Problem"
+    #     else:
+    #         return "Duct Tape"
+    # elif should_move:
+    #         return "WD-40"
+    #     else:
+    #         return "No Problem"
+    
     """Decide what to do.
 
     Using the engineering flowchart (in week2 folder engineeringFlowchart.png)
@@ -41,10 +51,10 @@ def fix_it(moves=True, should_move=True):
 
 
 def loops_1a():
-    list = []
+    list1a = []
     for i in range (10):
-        list.append('*')
-    return list
+        list1a.append('*')
+    return list1a
     
     
     
@@ -72,11 +82,11 @@ def loops_1a():
 
 
 def loops_1c(number_of_items=5, symbol="#"):
-    list=[]
+    list1c=[]
     
     for i in range(int(number_of_items)):
-        list.append(symbol)
-    return list
+        list1c.append(symbol)
+    return list1c
     
 
     """Respond to variables.
@@ -107,13 +117,20 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    list1=[]
-    for i in range(10):
-        list1.append("*")
     list2 = []
-    for x in range(10):
-        list2.append(list1)
+    for a in range(10):
+        temp_list2 = []
+        for b in range(10):
+            temp_list2.append('*')
+        list2.append(temp_list2)
     return list2
+    # list1=[]
+    # for i in range(10):
+    #     list1.append("*")
+    # list2 = []
+    # for x in range(10):
+    #     list2.append(list1)
+    # return list2
     #pass
 
 
@@ -138,16 +155,25 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    
 
-    myReturnList = []
-    for counter in range(10):
-        tempList=[]
-        for i in range(10):
-            tempList.append(str(counter))
-        myReturnList.append(tempList)
-    return myReturnList
-    #pass
+    list3 = []
+    for c in range(10):
+        temp_list3 =[]
+        for d in range(10):
+            temp_list3.append(str(c))
+        list3.append(temp_list3)
+    return list3
+
+
+
+#     myReturnList = []
+#     for counter in range(10):
+#         tempList=[]
+#         for i in range(10):
+#             tempList.append(str(counter))
+#         myReturnList.append(tempList)
+#     return myReturnList
+#     #pass
 
 
 def loops_4():
@@ -167,19 +193,27 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    list1=[]
-    i=0
-    for i in range(0, 10):
-        list1.append(str(i))
-    list2 = []
-    for x in range(0, 10):
-        list2.append(list1)
-    return list2
-    #pass
+    list4 = []
+    for k in range(10):
+        temp_list4 = []
+        for q in range(10):
+            temp_list4.append(str(q))
+        list4.append(temp_list4)
+    return list4
+
+#     list1=[]
+#     i=0
+#     for i in range(0, 10):
+#         list1.append(str(i))
+#     list2 = []
+#     for x in range(0, 10):
+#         list2.append(list1)
+#     return list2
+#     #pass
 
 
-# def loops_5():
-#     """Make the coordinates of the block.
+def loops_5():
+    """Make the coordinates of the block.
     
 #     Return this:
 #     [
@@ -200,7 +234,38 @@ def loops_4():
 #         "There are {} green bottles".format(8)
 #     you'll come to see the pros and cons of each over time.
 #     """
-    
+
+    list5 = []
+    for i in range(10):
+        temp_list5 = []
+        for j in range(5):
+            coord_i = 'i' + str(i)
+            coord_j = 'j' + str(j)
+            coord = '(' + coord_i + ', ' + coord_j + ')'
+            temp_list5.append(coord)
+        list5.append(temp_list5)
+    return list5
+
+    # square = []
+    # for i in range(10):
+    #     stars = []
+    #     for j in range(5):
+    #         coord_i = 'i' + str(i)
+    #         coord_j = 'j' + str(j)
+    #         coord = '(' + coord_i + ', ' + coord_j + ')'
+    #         stars.append(coord)
+    #     square.append(stars)
+    # return square
+
+    # bigList =[]
+    # for x in range(10):
+    #     smallList=[]
+    #     for y in range(5):
+    #         appendTo = (i + str(x) + ", j" + str(y)
+    #         smallList.append(appendTo)
+    #     bigList.append(smallList)
+    # return bigList
+
 #     my_return_list=[]
 #     for counter in range(10):
 #         my_temp_list=[]
@@ -212,59 +277,99 @@ def loops_4():
 #     #pass
 
 
-# def loops_6():
-#     list = []
-#     for i in range (0, 10):
-#         list.append(str(i))
-#         print(list)
-#     return list 
+
+def loops_6():
+    """Make a wedge of numbers.
+
+    Return this:
+    [
+      ['0'],
+      ['0', '1'],
+      ['0', '1', '2'],
+      ['0', '1', '2', '3'],
+      ['0', '1', '2', '3', '4'],
+      ['0', '1', '2', '3', '4', '5'],
+      ['0', '1', '2', '3', '4', '5', '6'],
+      ['0', '1', '2', '3', '4', '5', '6', '7'],
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8'],
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    ]
+    you don't have to use a literal number in the range function.
+    You can use a variable.
+    TIP: look out for the starting condition.
+    """
+    list6 = []
+    for row in range(10):
+        temp_list6 = []
+        for column in range(row + 1):
+            temp_list6.append(str(column))
+        list6.append(temp_list6)
+    return list6
 
 
-#     """Make a wedge of numbers.
-
-#     Return this:
-#     [
-#       ['0'],
-#       ['0', '1'],
-#       ['0', '1', '2'],
-#       ['0', '1', '2', '3'],
-#       ['0', '1', '2', '3', '4'],
-#       ['0', '1', '2', '3', '4', '5'],
-#       ['0', '1', '2', '3', '4', '5', '6'],
-#       ['0', '1', '2', '3', '4', '5', '6', '7'],
-#       ['0', '1', '2', '3', '4', '5', '6', '7', '8'],
-#       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-#     ]
-#     you don't have to use a literal number in the range function.
-#     You can use a variable.
-#     TIP: look out for the starting condition.
-#     """
-    
-
-#     #pass
 
 
-# def loops_7():
-#     """Make a pyramid.
 
-#     Return this:
-#     [
-#         [' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' '],
-#         [' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' '],
-#         [' ', ' ', '*', '*', '*', '*', '*', ' ', ' '],
-#         [' ', '*', '*', '*', '*', '*', '*', '*', ' '],
-#         ['*', '*', '*', '*', '*', '*', '*', '*', '*']
-#     ]
-#     or in more simple terms:
-#             *
-#           * * *
-#         * * * * *
-#       * * * * * * *
-#     * * * * * * * * *
-#     (this is what will print when you test from inside this file)
-#     This is a hard problem. Use lots of experimentation and draw
-#     lots of diagrams!
-#     """
+
+
+    # list6 = []
+    # for row in range(10):
+    #     temp_list6 = []
+    #     for height in range(row + 1):
+    #         temp_list6.append(str(height))
+    #     list6.append(temp_list6)
+    # return list6
+
+    # list6 = []
+    # for s in range(-1,9):
+    #     temp_list6 = []
+    #     temp_list6.append(micro_temp_list6)
+    #     for t += 1:
+    #         micro_temp_list6 = []
+    #         micro_temp_list6.append(str(t))
+    #     list6.append(temp_list6)
+    # return list6
+
+    #pass
+
+
+def loops_7():
+    """Make a pyramid.
+
+    Return this:
+    [
+        [' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' '],
+        [' ', ' ', '*', '*', '*', '*', '*', ' ', ' '],
+        [' ', '*', '*', '*', '*', '*', '*', '*', ' '],
+        ['*', '*', '*', '*', '*', '*', '*', '*', '*']
+    ]
+    or in more simple terms:
+            *
+          * * *
+        * * * * *
+      * * * * * * *
+    * * * * * * * * *
+    (this is what will print when you test from inside this file)
+    This is a hard problem. Use lots of experimentation and draw
+    lots of diagrams!
+    """
+
+    list7 = []
+    width =9
+    height =5
+    for i in range(height):
+        row = []
+        for k in range(width):
+            row.append("*")
+        leftSpace = int((width-1)/2-i)
+        rightSpace = int((width+1)/2+i)
+        for p in range(leftSpace):
+            row[p] = " "
+        for p in range(rightSpace, width):
+            row[p] = " "
+        list7.append(row)
+    return list7
 #     pass
 
 
@@ -295,17 +400,17 @@ if __name__ == "__main__":
     # It's NOT the official tests, they are in tests.py as usual.
     # Add to these tests, give them arguments etc. to make sure that your
     # code is robust to the situations that you'll see in action.
-    print(is_odd(1), "is_odd odd")
-    print(is_odd(4), "is_odd even")
-    print(fix_it(True, True))
-    print(fix_it(True, False))
-    print(fix_it(False, True))
-    print(fix_it(False, False))
-    lp(loops_1a(), "loops_1a")
-    lp(loops_1c(4, "×°×"), "loops_1c")
-    lp(loops_2(), "loops_2")
+    # print(is_odd(1), "is_odd odd")
+    # print(is_odd(4), "is_odd even")
+    # print(fix_it(True, True))
+    # print(fix_it(True, False))
+    # print(fix_it(False, True))
+    # print(fix_it(False, False))
+    # lp(loops_1a(), "loops_1a")
+    # lp(loops_1c(4, "×°×"), "loops_1c")
+    # lp(loops_2(), "loops_2")
     lp(loops_3(), "loops_3")
     lp(loops_4(), "loops_4")
-    #lp(loops_5(), "loops_5")
+    lp(loops_5(), "loops_5")
     lp(loops_6(), "loops_6")
-    #lp(loops_7(), "loops_7")
+    lp(loops_7(), "loops_7")
