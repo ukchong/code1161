@@ -28,40 +28,36 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
-    print("\nwelcome to the guessing game!")
-    print("A number between _ and 20 ?")
+    lower = int_input("Enter the lower bound: ")
+    upper = int_input("Enter the upper bound: ")
+    while upper < lower:
+        print("Your upper limit is lower than your lower limit!")
+        upper = int_input("Enter the upper bound: ")
+
+    random_int = random.randint(lower, upper)
+    print("Guess the number between {} and {}!".format(lower, upper))
     while True:
-      try:
-        lowerBound = int(input("Enter an lower bound: "))
-      except Exception as e:
-        print("1. Sorry, not a valid input. Please enter a number.")
-        continue
-      else:
-        print("OK then, a number between {} and 20 ?".format(lowerBound))
+        guess = int_input("Guess: ")
+        if not lower <= guess <= upper:
+            print("That is not in the range!")
+            continue
+        if guess > random_int:
+            print("Too high!")
+        elif guess < random_int:
+            print("Too low!")
+        else:
+            return "You got it!"
 
-      actualNumber = random.randint(lowerBound, 20)
 
-      guessed = False
-
-      while not guessed:
-        try:
-          guessedNumber = int(input("guess a number: "))
-        except Exception as e:
-          print("2. Sorry, not a valid input. Please enter a number.")
-          continue
-        
-          print("you guessed {},".format(guessedNumber))
-        if guessedNumber < actualNumber:
-          print("too small, try again")
-          continue
-        elif guessedNumber > actualNumber:
-          print("too big, try again")
-          continue
-        if guessedNumber == actualNumber:
-          print("you got it!! It was {}".format(actualNumber))
-          guessed = True
-          break
-      return "You got it!"
+def int_input(message=''):
+    """Continually asks for an integer."""
+    answer = input(message)
+    try:
+        answer = int(answer)
+        return answer
+    except Exception:
+        print("Please input an integer only!")
+        return int_input("Integer: ")
 
 
 if __name__ == "__main__":

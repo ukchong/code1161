@@ -37,9 +37,11 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
+    result = data["results"][0]
+    return {"lastName":       result["name"]["last"],
+            "password":       result["login"]["password"],
+            "postcodePlusID": result["location"]["postcode"] +
+            int(result["id"]["value"])
             }
 
 
@@ -52,7 +54,8 @@ def wordy_pyramid():
     The arguments that the generator takes is the minLength and maxLength of the word
     as well as the limit, which is the the number of words. 
     Visit the above link as an example.
-    Use this and the requests library to make a word pyramid. The shortest
+    
+    Use this and the json and requests library to make a word pyramid. The shortest
     words they have are 3 letters long and the longest are 20. The pyramid
     should step up by 2 letters at a time.
     Return the pyramid as a list of strings.
@@ -78,8 +81,19 @@ def wordy_pyramid():
     "Leto",
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
+    TIP II: Requests has a json method. It may make your life easier.
     """
-    pass
+
+    pyramid1 = []
+    pyramid2 = []
+    url = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={}&maxLength={}&limit=1"
+    for length in range(3, 21):
+        if length % 2 == 1:
+            pyramid1.append(requests.get(url.format(length, length)).json()[0]['word'])
+        else:
+            pyramid2 = [requests.get(url.format(length, length)).json()[0]['word']] + pyramid2
+
+    return pyramid1 + pyramid2
 
 
 def wunderground():
@@ -93,8 +107,8 @@ def wunderground():
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    base = "http://api.wunderground.com/api/"
-    api_key = "YOUR KEY - REGISTER TO GET ONE"
+    base = "http://api.wunderground.com/api"
+    api_key = "2a7730bdd6f6ff60"
     country = "AU"
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"
@@ -103,10 +117,13 @@ def wunderground():
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
 
-    return {"state":           None,
-            "latitude":        None,
-            "longitude":       None,
-            "local_tz_offset": None}
+    dict1 = {"state":           obs["display_location"]["state"],
+             "latitude":        obs["display_location"]["latitude"],
+             "longitude":       obs["display_location"]["longitude"],
+             "local_tz_offset": obs["local_tz_offset"]}
+    print(str(dict1))
+    return dict1
+
 
 
 def diarist():
@@ -122,7 +139,18 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    pass
+    count = 0
+    laser_file = 'Trispokedovetiles(laser).gcode'
+    with open(laser_file, 'r') as laser:
+        commands = laser.read().split('\n')
+        for command in commands:
+            if "M10 P1" in command:
+                count += 1
+
+    pew_file = 'lasers.pew'
+    with open(pew_file, 'w') as pew:
+        pew.write(str(count))
+    return count
 
 
 if __name__ == "__main__":

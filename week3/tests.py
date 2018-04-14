@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 """Run the tests.
+
 This file tests your code. It'll check that the work in each
 of the exercise files does what it's supposed to.
 """
@@ -12,6 +13,7 @@ import os
 import random
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(os.path.dirname(__file__))
 from codeHelpers import completion_message
 from codeHelpers import ex_runs
 from codeHelpers import nyan_cat
@@ -20,6 +22,9 @@ from codeHelpers import test
 from codeHelpers import Timeout
 
 WEEK_NUMBER = 3
+
+if 'week' in os.getcwd():
+    os.chdir('..')
 
 
 def test_stubborn_asker(path, low, high):
@@ -77,10 +82,11 @@ def test_super_asker(path, low, high):
 
 def test_example_guessingGame(path):
     """Test the example_guessingGame function.
+
     This should always pass becasue it's provided code
     """
     try:
-        path = "exercise2.py"
+        path = "{}/week{}/exercise2.py".format(path, WEEK_NUMBER)
         exercise2 = imp.load_source("exercise2", path)
     except Exception as e:
         return syntax_error_message(2, e)
@@ -88,20 +94,15 @@ def test_example_guessingGame(path):
     guesses = list(range(5+1))
     mockInputs = [upperBound] + guesses
     try:
-        with Timeout(3):
+        with Timeout(300):
             with mock.patch('builtins.input', side_effect=mockInputs):
                 return exercise2.exampleGuessingGame() == "You got it!"
     except Exception as e:
         print("exception:", e)
 
 
-def test_advanced_guessingGame(path, mockInputs):
+def test_advanced_guessingGame(exercise3, mockInputs):
     """Test the advanced_guessingGame function."""
-    try:
-        path = "exercise3.py"
-        exercise3 = imp.load_source("exercise3", path)
-    except Exception as e:
-        return syntax_error_message(3, e)
 
     try:
         with Timeout(3):
@@ -113,6 +114,7 @@ def test_advanced_guessingGame(path, mockInputs):
 
 def test_binary_search(path, low, high, actual):
     """Test the binary search function.
+
     checks to see that it's searching better than O(log n)
     """
     try:
@@ -166,6 +168,7 @@ E.g. if your range is 16, then the worst case is 4 guesses: 2×2×2×2 = 16
 Think back to when you were playing the game with your brain, sometimes
 you'd go over the worst case because you aren't a perfect arithmatic
 machine but the computer is, so it's always below that worst case limit.
+
             Close the histogram to finish running the tests.""")
     plt.show()
 
@@ -178,9 +181,9 @@ def theTests(path_to_code_to_check="."):
     testResults = []
 
     # Give each person 10 seconds to complete all tests.
-    ex1path = "exercise1.py"
+    ex1path = "{}/week{}/exercise1.py".format(path_to_code_to_check, WEEK_NUMBER)
 
-    if ex_runs(path_to_code_to_check, exNumber=1, weekNumber=WEEK_NUMBER):
+    if ex_runs(ex1path, exNumber=1, weekNumber=WEEK_NUMBER):
         exercise1 = imp.load_source("exercise1", ex1path)
 
         testResults.append(
@@ -213,44 +216,47 @@ def theTests(path_to_code_to_check="."):
         #          [0, 30, 37, 67, 74],
         #          "Exercise 1: gene_krupa_range(0, 100, 30, 7)"))
 
-        testResults.append(
-            test(test_stubborn_asker(path_to_code_to_check, 50, 60),
-                 "Exercise 1: Stubborn asker"))
 
-        testResults.append(
-            test(test_stubborn_asker(path_to_code_to_check, 10, 20),
-                 "Exercise 1: Stubborn asker"))
+        # TODO fix these...
+        # testResults.append(
+        #     test(test_stubborn_asker(path_to_code_to_check, 50, 60),
+        #          "Exercise 1: Stubborn asker"))
 
-        testResults.append(
-            test(test_not_number_rejector(path_to_code_to_check),
-                 "Exercise 1: not_number_rejector"))
+        # testResults.append(
+        #     test(test_stubborn_asker(path_to_code_to_check, 10, 20),
+        #          "Exercise 1: Stubborn asker"))
 
-        testResults.append(
-            test(test_super_asker(path_to_code_to_check, 50, 60),
-                 "Exercise 1: test_super_asker"))
+        # testResults.append(
+        #     test(test_not_number_rejector(path_to_code_to_check),
+        #          "Exercise 1: not_number_rejector"))
+
+        # testResults.append(
+        #     test(test_super_asker(path_to_code_to_check, 50, 60),
+        #          "Exercise 1: test_super_asker"))
 
     local_path = "exercise2.py"
 
     testResults.append(
         test(test_example_guessingGame(path_to_code_to_check),
              "Exercise 2: example guessing game"))
-
-    if ex_runs(path_to_code_to_check, exNumber=3, weekNumber=WEEK_NUMBER):
-        imp.load_source("exercise3", "exercise3.py")
+    ex3path = "{}/week{}/exercise3.py".format(path_to_code_to_check, WEEK_NUMBER)
+    
+    if ex_runs(ex3path, exNumber=3, weekNumber=WEEK_NUMBER):
+        exercise3 = imp.load_source("exercise3", ex3path)
 
         lowerBound = 10
         upperBound = 15
         guesses = list(range(lowerBound, upperBound + 1))
         mockInputs = [lowerBound] + [upperBound] + guesses
         testResults.append(
-            test(test_advanced_guessingGame(path_to_code_to_check,
+            test(test_advanced_guessingGame(exercise3,
                                             mockInputs),
                  "Exercise 3: guessing game, U&L"))
 
         mockInputs = ["ten"] + [lowerBound] + [upperBound] + \
                      ["cats"] + guesses
         testResults.append(
-            test(test_advanced_guessingGame(path_to_code_to_check,
+            test(test_advanced_guessingGame(exercise3,
                                             mockInputs),
                  "Exercise 3: guessing game, polite failures"))
 
@@ -260,7 +266,7 @@ def theTests(path_to_code_to_check="."):
         guesses = list(range(lowerBound, secondGuess + 1))
         mockInputs = [lowerBound] + [upperBound] + [secondGuess] + guesses
         testResults.append(
-            test(test_advanced_guessingGame(path_to_code_to_check,
+            test(test_advanced_guessingGame(exercise3,
                                             mockInputs),
                  "Exercise 3: guessing game, lowerBound "
                  "bigger than upperBound"))
@@ -271,7 +277,7 @@ def theTests(path_to_code_to_check="."):
         guesses = list(range(lowerBound, secondGuess + 1))
         mockInputs = [lowerBound] + [upperBound] + [secondGuess] + guesses
         testResults.append(
-            test(test_advanced_guessingGame(path_to_code_to_check,
+            test(test_advanced_guessingGame(exercise3,
                                             mockInputs),
                  "Exercise 3: guessing game, no " +
                  "range to guess in (delta 1)"))
@@ -282,7 +288,7 @@ def theTests(path_to_code_to_check="."):
         guesses = list(range(lowerBound, secondGuess + 1))
         mockInputs = [lowerBound] + [upperBound] + [secondGuess] + guesses
         testResults.append(
-            test(test_advanced_guessingGame(path_to_code_to_check,
+            test(test_advanced_guessingGame(exercise3,
                                             mockInputs),
                  "Exercise 3: guessing game, no " +
                  "range to guess in (equal)"))
