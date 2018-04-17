@@ -42,13 +42,14 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
+
     answered = False
     while answered is False:
         num = input("Enter a number between {} and {}: ".format(low, high))
         if int(num) > low and int(num) < high:
             answered = True
             break
-        print(str(answered))
+        print(answered)
     return num
 
 
@@ -59,17 +60,17 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    answered = False
-    while not answered:
-        answered = True
-        inputVar = input(message)
-        try:
-            inputVar = int(inputVar)
-        except Exception:
-            try:
-                inputVar = float(inputVar)
-            except Exception:
-                answered = False
+    answered = False            #대답했니? = 아뇨
+    while not answered:         #대답안한동안
+        answered = True         #대답했니? = 네
+        inputVar = input(message)   #inputvar = Enter a number: x
+        try:                    #시도해봐
+            inputVar = int(inputVar)    #inputCar 는 정수니?
+        except Exception:       #아닌 경우들에 대해
+            try:                #시도해봐
+                inputVar = float(inputVar) #inputVar는 소수니?
+            except Exception:   #아닌 경우들에 대해:
+                answered = False    #대답했니는 아니오
     return inputVar
 
 

@@ -34,10 +34,10 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
-    json_data = open(LOCAL + "/lazyduck.json").read()
-
-    data = json.loads(json_data)
-    result = data["results"][0]
+    json_data = open(LOCAL + "/lazyduck.json").read()       #json_data 명찰, (/Users/ewan/Desktop/Ewan/uni/code1161/lazyduck.json).read()
+                                                            #이게 IOExample보다 쉬운 파일 열어서 읽는 법인듯
+    data = json.loads(json_data)                            #data 명찰에 lazyduck.json을 로드
+    result = data["results"][0]                             #lazyduck확인결과 male mr romain hoogmoed임.
     return {"lastName":       result["name"]["last"],
             "password":       result["login"]["password"],
             "postcodePlusID": result["location"]["postcode"] +
@@ -137,20 +137,20 @@ def diarist():
          not just LF like unix does now. If your comparison is failing this
          might be why. Try in rather than == and that might help.
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
-         the test will have nothing to look at.
+         the test will have nothing to look at.  ok.
     """
     count = 0
     laser_file = 'Trispokedovetiles(laser).gcode'
-    with open(laser_file, 'r') as laser:
-        commands = laser.read().split('\n')
-        for command in commands:
-            if "M10 P1" in command:
-                count += 1
+    with open(laser_file, 'r') as laser:    #with open(파일, 모드) as laser: 
+        commands = laser.read().split('\n') #리스트를 만듬 - 한줄 띄어진것마다 리스트가 된다
+        for command in commands:            #commands list안의 command들에대해 - 여기서 command는 그냥 요소들
+            if "M10 P1" in command:         #M10 P1이 있을떄마다
+                count += 1                  #count에 1씩 더한다.
 
-    pew_file = 'lasers.pew'
-    with open(pew_file, 'w') as pew:
-        pew.write(str(count))
-    return count
+    pew_file = 'lasers.pew'                 #pew_file이라는 명함 파주고
+    with open(pew_file, 'w') as pew:        #with open(파일, 모드) as pew:
+        pew.write(str(count))               #pew에 카운트(넘버)를 스트링으로 적는다
+    return count                            #카운트를 리턴. 연 파일은 안닫아도 되나? IOExample에서는 닫았음..
 
 
 if __name__ == "__main__":

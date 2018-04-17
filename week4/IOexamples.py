@@ -22,33 +22,34 @@ def be_cool(name):
     print(name + " is cool")
 
 
-be_cool("Ben")
+be_cool("Ewan")
 
 
 def be_cool_for_ever(name, file_path):
     """Save a message about being cool for ever."""
-    mode = "w"  # from the docs
+    mode = 'w'
     history_book = open(file_path, mode)
     history_book.write(name + " is cool")
     history_book.close()
 
 # look up what '..' means
-be_cool_for_ever("Ben", "../ben_is_cool.txt")
-be_cool_for_ever("Ben", "ben_is_cool.lol_UR_joking")
+be_cool_for_ever("Ewan", "../Ewan_is_cool.txt")
+be_cool_for_ever("Ewan", "Ewan_is_cool.lol_UR_joking")
 
 # See where each file was saved
 
 def who_is_cool(file_path):
     """Read a file and print what it says."""
-    mode = "r"  # from the docs
-    history_book = open(file_path, mode)
+    mode = 'r'
+    history_book = open(file_path)
     response = history_book.read()
-    message = "historians have recorded that:\n\t"
-    print(message + response)
+    message = "historians have recorded that\n\t"
+    print (message + response)
     history_book.close()
 
 
-who_is_cool("ben_is_cool.txt")
+
+who_is_cool("../Ewan_is_cool.txt")
 
 
 # some JSON examples:
@@ -73,8 +74,8 @@ def bury_time_capsule(something_for_your_kids_to_find, file_path):
         return False
 
 
-message_for_capsule = {"name": "Ben",
-                       "Year": 2017,
+message_for_capsule = {"name": "Ewan",
+                       "Year": 2018,
                        "Location": "Sydney",
                        "Greeting": "Yo whatup now and give a brother room",
                        "Fact": "It would take 1,200,000 mosquitoes, each " +

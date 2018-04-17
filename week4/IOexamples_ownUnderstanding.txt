@@ -1,0 +1,90 @@
+IOexamples.py
+
+Argument 1. string이 filename을 가지고 있는가
+Arguement 2. 또다른 string이 file이 어떤식으로 쓰여질지를 나타내는 few character를 가지고 있다
+mode.	model arguement는 optional이다. 생략 되었다면 'r'이 쓰여지는것으로 생각된다.
+		'r'은 file이 read만 할때.
+		'w'는 writing만 할때; 기존의 파일을 지워진다.
+		'a'는 파일을 열어서 append할때; 자동으로 맨뒤에 이어서 쓴다.
+		'r+'는 file을 읽고 쓸떄.
+
+
+
+def be_cool(name):
+	print (name + "is cool")
+
+be cool("Ewan")
+
+
+
+
+def be_cool_for_ever(name, file_path):
+	"""be cool for ever이란 펑션으로 지정된 file_path에 다음 메세지를 저장한다"""
+	mode = 'w'
+	history_book = open(file_path, mode) #file에 쓴다.
+	history_book.write(name + "is cool") #Name 과 더물어 is cool이라고 쓴다.
+	history_book.close() #파일 닫는다.
+
+be_cool_for_ever("Ewan", ../Ewan_is_cool.txt) #선행 디렉토리에 파일을 저장한다.
+be_cool_for_ever("Ewan", "Ewan_is_cool.lol_UR_joking") #같은 디렉토리에 이상확 확장자로 저장한다.
+
+
+
+def who_is_cool(file_path):
+	"""file을 읽고 뭐라고 써져있는지 프린트한다"""
+	mode = 'r'
+	history_book = open(file_path, mode) #file을 열고 모드 실행, 지금은 읽는것.
+	response = history_book.read() #파일 안에 적혀있는것들.
+	message = "historians have recorded that:/n/t" #이거를 쓴다.
+	print(message + response) #아마 historians have recorded that:
+																	#Ewan is cool
+	history_book.close()
+who_is_cool(../Ewan_is_cool.txt)
+
+def bury_time_capsule(something_for_your_kids_to_find, file_path):
+	"""Save some json to a file.
+	Arguements:
+		something_for_your_kids_to_find (dict): 사실들의 사전
+		file_path (str): jsom파일을 저장하고 싶은 경로 지정"""
+	try:
+		dumped = dump.json(something_for_your_kids_to_find) #something_for_your_kids_to_find=message_for_capsule, 그리고 message_for_capsule가 dumped에 씌워진다.
+		mode = w											#쓰기 모드 지정.
+		time_capsule = open(file_path, mode)				#time_capsule이라는 양식 지정; 경로와 행동 지정
+		time_capsule.write(dumped)							#time_capsule 양식에 'dumped'를 씌운다.
+		time_capsule.close()								#time_capsule 양식을 닫는다.
+		return True
+	except Exception as e:
+		print(e)
+		return False
+
+
+
+message_for_capsule = {"name": "Ewan",
+					   "Year": 2018,
+					   "Location": "Sydney",
+					   "Greeting": "Did you know?",
+					   "Fact": "It would take 1,200,000 mosquitoes, each " +
+					   		   "sucking once, to completely drain the " +
+					   		   "everage human of blood"
+					   "Alphabet Inc Class A": "950.05AUD",
+					   "fruit": ["Apple","Grape","Banana","Passionfruit"]}
+
+bury_time_capsule(message_for_capsule, "under_the_patio.json")
+
+
+
+
+def dig_up_capsule(file_path):
+	"""json파일을 읽고 프린트 할것이다."""
+	mode = 'r'			#read로 설정 
+	time_capsule = open(file_path, mode)			#time_capsule 양식 지정; 경로와 모드
+	contents = json.load(time_capsule)			#time capsule 안의 내용물을 jsom 포맷으로 물러옴 = contents
+	time_capsule.close()			#Time_capsule 닫음.
+	keys_needed = ["Greeting", "Year", "Fact"]			#keys_needed 리스트 필요. Greetings, Year, Fact
+	if all(key in contents for key in keys_needed):			#컨텐츠의 키들과 필요한 키들을 비교했을때 모든 조건이 맞는다면
+		template = """{Greeting},\nDid you know that in {Year}, "{Fact}" was still true!"""		#template = [Greeting] - (next Line) Did you know that in [Year], "[Fact]" was still true!
+		print (template.format(**contents))		#print (tempate.format(**contents)
+		return True		#return True
+	else:			#아니면
+		print ("Your dictionary is missing some keys", contents, keys_needed)		#프린트 "Your dictionary is missing some keys.", contents, keys_needed
+		return False		#return False

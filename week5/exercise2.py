@@ -53,7 +53,7 @@ def italian_dinner(axiom="tomatoes", guard=6):
     Here's a photo of the page: https://goo.gl/photos/bEh8dmkYkeAy7W727
     """
     parts = axiom.split(" ")
-    result = list(map(italian_rules, parts))
+    result = map(italian_rules, parts)
     new_string = " ".join(result)
     guard -= 1
     if guard > 0:
@@ -98,17 +98,22 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
+        if guard == -1:
+            return letter
         if letter == "a":
-            return "a"
+            return "".join(list(map(lambda x: apply_rules(x, guard-1), "bba")))
         elif letter == "b":
-            return "b"
+            return "".join(list(map(lambda x: apply_rules(x, guard-1), "aob")))
         elif letter == "o":
-            return "o"
+            return "".join(list(map(lambda x: apply_rules(x, guard-1), "oa")))
         else:
             return letter
 
     # write the rest of the function here
-    pass
+    ans = ''
+    for x in list(source):
+        ans += apply_rules(x, guard-1)
+    return ans
 
 
 def koch(t, order, size):
@@ -153,8 +158,19 @@ def square_koch(t, order, size):
     """
     trace = ""
     # write the rest of the function here.
+    if order == 0:          # The base case is just a straight line
+        t.forward(size)
+    else:
+        trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
     return str(order) + trace
-    pass
 
 
 def draw_square(steps=4):

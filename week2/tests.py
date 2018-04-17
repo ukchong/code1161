@@ -8,23 +8,38 @@ of the exercise files does what it's supposed to.
 # TODO replace flake8 with yapf or calm flake8 down
 
 
+
 import imp
 import os
 import sys
 from pathlib import Path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
-
+import codeHelpers
 from codeHelpers import completion_message, ex_runs, nyan_cat, test
-
+import importlib.util
+# def ex_runs(path, exNumber, weekNumber):
+#     """Check that this exercise runs at all."""
+#     try:
+#         path = "exercise{}.py".format(exNumber)
+#         imp.load_source("exercise{}".format(exNumber), path)
+#         return True
+#     except Exception as e:
+#         codeHelpers.syntax_error_message(exNumber, e)
+#         return False
 
 WEEK_NUMBER = 2
 
+# if working dir contains week, we are one too deep
+if 'week' in os.getcwd():
+    os.chdir('..')
 
 def ex2runs(path):
     """Test w2 ex2 to check it works."""
     try:
-        from week2 import exercise2
+        # from week2 import exercise2
+        spec = importlib.util.spec_from_file_location("week2.exercise2", path+"/week2/exercise2.py")
+        exercise2 = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(exercise2)
         return exercise2.week2exersise2() == "MC Hammer"
     except Exception as e:
         print("\nThere is a syntax error", str(e))
@@ -51,8 +66,10 @@ def ex3runs(path):
         print('{s:{c}^{n}}\n{s:{c}^{n}}\n'.format(n=50, c='*', s=""))
         return False
 
-def lab_book_entry_completed():
-    lab_book = Path("week2/readme.md")
+def lab_book_entry_completed(path_to_code_to_check='.'):
+    # TODO do what you did for week1 lab book here
+    # TODO look to standardise this in a decorator 
+    lab_book = Path(f'{path_to_code_to_check}/readme.md')
     if lab_book.is_file():
         with open(lab_book, 'r') as f:
             lines = f.readlines()
@@ -71,12 +88,13 @@ def theTests(path_to_code_to_check="."):
     testResults = []
 
     # Tests from here:
-    path = "exercise0.py"
+    path = "{}/week{}/exercise0.py".format(path_to_code_to_check, WEEK_NUMBER)
 
-
-    if ex_runs(path_to_code_to_check, exNumber=0, weekNumber=WEEK_NUMBER):
+    # TODO we need to do this one by one such that if there is something silly
+    # then it still executes the rest of the tests.
+    # resort to doing it manually for now.
+    if ex_runs(path, exNumber=0, weekNumber=WEEK_NUMBER):
         exercise0 = imp.load_source("exercise0", path)
-
         testResults.append(
             test(exercise0.add_5(55) == 60,
                  "Exercise 0: add_5 - 55 + 5 = 60?"))
@@ -125,28 +143,25 @@ def theTests(path_to_code_to_check="."):
         testResults.append(
             test(exercise0.really_shout("PARTY") == "PARTY!",
                  "Exercise 0: really_shout - PARTY => PARTY!?"))
-        testResults.append(
-            test(exercise0.shout_with_a_number("hi", 1) == "HI 1",
-                 "Exercise 0: shout_with_a_number - hi, 1 => HI 1?"))
+        # testResults.append(
+        #     test(exercise0.shout_with_a_number("hi", 1) == "HI 1",
+        #          "Exercise 0: shout_with_a_number - hi, 1 => HI 1?"))
 
-    path = "exercise1.py".format(path_to_code_to_check, WEEK_NUMBER)
-
-
-    path = "exercise2.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "{}/week{}/exercise2.py".format(path_to_code_to_check, WEEK_NUMBER)
 
 
     testResults.append(
         test(ex2runs(path_to_code_to_check),
              "Exercise 2: debug the file"))
 
-    path = "exercise3.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "{}/week{}/exercise3.py".format(path_to_code_to_check, WEEK_NUMBER)
 
 
     if ex3runs(path_to_code_to_check):
         exercise3 = imp.load_source("exercise3", path)
         # is odd
         testResults.append(
-            test(exercise3.is_odd(2),
+            test(exercise3.is_odd(2) is False,
                  "Exercise 3: is_odd - is 2 odd?"))
 
         testResults.append(
@@ -271,7 +286,7 @@ def theTests(path_to_code_to_check="."):
         testResults.append(
             test(exercise3.loops_7() == pyramid,
                  "Exercise 3: loops_7 - pyramid of stars"))
-    testResults.append(test(lab_book_entry_completed(), "Lab book entry completed"))
+    testResults.append(test(lab_book_entry_completed(path_to_code_to_check), "Lab book entry completed"))
     print("{0}/{1} (passed/attempted)".format(sum(testResults),
                                               len(testResults)))
 

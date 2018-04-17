@@ -1,0 +1,148 @@
+hangman_leaderboard_ownUnderstanding
+
+
+import json			#json 모듈 불러옴
+import os 			#os 모듈 불러옴
+import random 		#random 모듈 불러옴
+import time 		#time 모듈 볼러옴
+
+
+HANGMANPICS = [
+    '''
++---+
+|   |
+    |
+    |
+    |
+    |
+    |
+=========''', '''
+
++---+
+|   |
+O   |
+    |
+    |
+    |
+=========''', '''
+
++---+
+|   |
+O   |
+|   |
+    |
+    |
+=========''', '''
+
++---+
+|   |
+O   |
+/|  |
+    |
+    |
+=========''', '''
+
++---+
+|   |
+O   |
+/|\ |
+    |
+    | 
+=========''', '''
+
++---+
+|   |
+O   |
+/|\ |
+/   |
+    |
+=========''', '''
+
++---+
+|   |
+O   |
+/|\ |
+/ \ |
+    |
+========='''
+]
+
+
+words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra'.split(' ')
+
+print('H A N G M A N')
+missedLetters = ' '			#틀린 문자 스트링
+correctLetters = ' '		#맞춘 문자 스트링
+secretWord = getRandomWord(words)	#function 소환. words는 wordList가 되었다.
+GameIsDone = False			#게임이 끝나지 않았지.
+
+game_stats = []				#게임 스텟 리스트
+display_highscores()		#display_highscores fuction으로 버로우.
+name = input("Who is playing?: ")
+start.time==time.time()
+while True:
+    displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+   	guess = getGuess(missedLetters + correctLetters)	#getGuess function을 실행
+   	if guess in secretWord:								#만약 guess가 secretWord에 속한다면:
+   		correctLetters = correctLetters + guess 		#correctLetters에 기존 값에 guess를 더한다. Q)list는 append, string과 tuple은 더하기?
+   		foundAllLetters = True 							#fouldAllLetters는 사실
+   		for i in range(len(secretWord)):				#0부터 5가지 중에:
+   			if secretWord[i] not in correctLetters:		#만약 secretWord에 어느것이라도 correctLetters에 들어있지 않다면:
+   				foundAllLetters = False 				#fouldallLetters는 거짓이다
+   				break									#루프에서 벗어난다.
+   		if foundAllLetters:
+   			print ('Yes! The secret word is "' + secretWord + '"! You have won!')
+   			GameIsDone = True
+
+
+elapsed_time = time.time() - start_time
+
+
+
+
+
+def getRandomWord(wordList):
+	wordIndex = random.randint(0, len(wordList)-1)		#wordIndex를 정의.
+	return wordList[wordIndex]		#return value
+
+
+def display_highscores():
+	global game_stats		#게임 스텟이 글로벌 파라미터가 됨.
+	if os.path.exists('./high_scores.txt'):		#high_scres.txt 파일이 존재한다면?
+		game_stats = json.load(open('high_scores.txt')) #mode가 생략됬으므로 'r'로 쓴다.
+	print ('---- HIGH SCORES ----')
+	for stat in game_stats:			#game_stats 리스트의 stat들- 딕셔너리.
+		print ('---- **** ----')
+		for key, value in stat.items():		#딕셔너리 포맷을 키와 밸류로 구분
+			print ('{} {}'.format(key, value))
+
+
+def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
+	print (HANGMANPICS[len(missedLetters)])			#missdedLetters 가지수를 행맨픽스 인덱스로 사용해서 프린트
+	print ()			#한칸 띄고
+	print ('Missed Letters:', end = ' ')			#Missed Letters:
+	for letter in missedLetters:
+		print(letter, end= ' ')						#Missed Letters: 다음으로 채워넣는다.
+	print ()
+
+	blanks = '_' * len(secretWord)					#secretWord의 문자 개수만큼 _를 생성
+	for i in range (len(secretWord)):				#secretWord Range 생성; 0에서 5까지
+		if secretWord[i] in correctLetters:			#secretWord의 index중에서 correctLetters에 맞춘게 있었나? 그랬으면
+			blanks = blanks[:i] + secretWord[i] + blanks[i+1:]	#blanks를 secretWord와 바꿔친다.
+	for letter in blanks:							 
+		print(letter, end= ' ')						#- - - - - 의 형식으로 blacks를 제배열
+	print ()										#한줄 띄고
+
+
+def getGuess(alreadyGuessed):		#missedLetters + correctLetters = alreadyGuessed 가 되었다.
+	guess=input()					#guess하라
+	guess=guess.lower()				#guess한 것을 lowercase로
+    if len(guess) != 1:				#Input 길이가 하나가 아니면
+    	print('Please enter a single letter.')	#'Please enter a single letter.' 를 출력
+    elif guess in alreadyGuessed:	#또는 이미 게스한 것이라면
+        print('You have already guessed that letter. Choose again.') #'You have already guessed that letter. Choose again.'를 출력
+    elif guess not in 'abcdefghijklmnopqrstuvwxyz':	#또는 게스가 'abcdefghijklmnopqrstuvwxyz'에 없으면
+        print('Please enter a LETTER.')		#'Please enter a LETTER.'를 출력.
+    else:							#또는
+        return guess 				#guess를 리턴하라
+	

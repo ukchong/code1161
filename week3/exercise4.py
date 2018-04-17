@@ -28,20 +28,20 @@ def binary_search(low, high, actual_number):
       tests aren't that smart yet.)
     """
 
-    d = {"guess": [], "tries": 0}
-    current = int(high/2)
-    current_high = high
-    current_low = low
-    while current != actual_number:
-        if actual_number < current:
-            current_high = current
-            current = int((current_high + current_low)/2)
-        elif actual_number > current:
-            current_low = current
-            current = int((current_high + current_low)/2)
-        d["guess"].append(current)
-        d["tries"] += 1
-    return d
+    d = {"guess": [], "tries": 0}   #d는 딕셔너리고 안에 게스와 트라이스 리스트가 있다.
+    current = int(high/2)           #current는 주어진 height을 2로 나눈 값
+    current_high = high             #current height는 height
+    current_low = low               #Current low는 low
+    while current != actual_number:     #current가 actual_number가 아닐때
+        if actual_number < current:     #만약 actual이 current보다 작아?
+            current_high = current      #current height에 current값을 준다
+            current = int((current_high + current_low)/2)   #current는 current height과 current low를 더해서 2로 나눈 값이 된다.
+        elif actual_number > current:   #만약 actual이 current보다 커?
+            current_low = current       #current low에 current값을 준다
+            current = int((current_high + current_low)/2)   #current는 current height과 current low를 더해서 2로 나눈 값이 된다.
+        d["guess"].append(current)      #d의 게스 리스트값에 current를 append한다
+        d["tries"] += 1                 #d의 tries 리스트값이 1씩 오른다
+    return d                            #d 를 보여줘.
 
 
 if __name__ == "__main__":

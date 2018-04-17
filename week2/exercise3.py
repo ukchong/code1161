@@ -244,6 +244,12 @@ def loops_5():
             coord = '(' + coord_i + ', ' + coord_j + ')'
             temp_list5.append(coord)
         list5.append(temp_list5)
+    # for a in range (10):
+    #     smallList5=[]
+    #     for b in range (5):
+    #         coord = '(' + 'i' + str(a) + ', ' + 'j'+ str(b) + ')'
+    #         smallList5.append(coord)
+    #     list5.append(smallList5)
     return list5
 
     # square = []
@@ -299,11 +305,16 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     list6 = []
-    for row in range(10):
-        temp_list6 = []
-        for column in range(row + 1):
-            temp_list6.append(str(column))
-        list6.append(temp_list6)
+    # for row in range(10):
+    #     temp_list6 = []
+    #     for column in range(row + 1):
+    #         temp_list6.append(str(column))
+    #     list6.append(temp_list6)
+    for a in range (10):
+        smallList6 = []
+        for b in range (a+1):
+            smallList6.append((str(b)))
+        list6.append(smallList6)
     return list6
 
 
@@ -356,19 +367,33 @@ def loops_7():
     """
 
     list7 = []
-    width =9
-    height =5
-    for i in range(height):
-        row = []
-        for k in range(width):
-            row.append("*")
-        leftSpace = int((width-1)/2-i)
-        rightSpace = int((width+1)/2+i)
-        for p in range(leftSpace):
-            row[p] = " "
-        for p in range(rightSpace, width):
-            row[p] = " "
-        list7.append(row)
+    height=5
+    width=9
+    for a in range (height):
+        smallList7 = []
+        for b in range (width):
+            smallList7.append('*')
+        left = int((width/2) - a)
+        right = int((width+1)/2 + a)
+        for c in range (left):
+            smallList7[c] = " "
+        for c in range (right, width):
+            smallList7[c] = " "
+        list7.append(smallList7)
+
+    # width =9
+    # height =5
+    # for i in range(height):
+    #     row = []
+    #     for k in range(width):
+    #         row.append("*")
+    #     leftSpace = int((width-1)/2-i)
+    #     rightSpace = int((width+1)/2+i)
+    #     for p in range(leftSpace):
+    #         row[p] = " "
+    #     for p in range(rightSpace, width):
+    #         row[p] = " "
+    #     list7.append(row)
     return list7
 #     pass
 

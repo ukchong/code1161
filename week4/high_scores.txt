@@ -1,0 +1,1 @@
+[{"name": "Ewa ", "time_taken": 34.17762780189514, "percentage": 1.0}, {"name": "Ewan", "time_taken": 3810.4849078655243, "percentage": 1.0}]

@@ -1,0 +1,69 @@
+For test Revision
+
+Total Exercise
+Week 1
+Exercise 1
+	1 code						1/1
+
+Week2
+Exercise 0
+	6 code						6/6
+Exercise 1
+	1 code						1/1
+Exercise 2
+	2 code						2/2
+	 About MC Hammer	whatever=string.ascii_lower()	whatever = abcdefghijklmnopqrstuvwxyz
+Exercies 3
+	10 code						10/10
+	- def is_odd(a_number):		나머지 값.  x % 2 != 0		Remainder가 0이 아니다. 그러니까 오드
+	- def fix_it(moves=True, should_move=True):			Engineering Chart. If/elif/else
+	- def loops_1a():			그냥 심플 레인지 펑션
+	- def loops_1c(number_of_items=5, symbol="#"):		그냥 심플 레인지 펑션에 값 들가있는거
+	- def loops_2():			레인지 리스트안에 레인지 리스트 (스타필드)
+	- def loops_3():			레인지 리스트안에 레인지 리스트 (숫자필드)
+	- def loops_4():			레인지 리스트안에 레인지 리스트인데 작은 리스트 어센딩
+	- def loops_5():			레인지 리스트안에 레인지 리스트인데 작은 리스트에 코디네이트.  *append는 (x,y)를 받지 않는다, 항상 (x) 즉 단일 값만 가능함. 코디넷은 치환할것.
+	- def loops_6():			레인지 웻지. 스타팅 포인트에 유념할것. 작은리스트의 레인지를 큰리스트 +1 해줘야 영부터 시작.
+	- def loops_7():			트리. 가서 보셈 말로 설명 힘듬...
+
+
+
+
+Week3
+Exercise 1
+	6 code						6/6
+	- def loop_ranger(start, stop=None, step=1):
+	- def lone_ranger(start, stop, step):
+	- def two_step_ranger(start, stop):
+	- def stubborn_asker(low, high):		while if/break			명제에 booleon을 설정해서 풀어나감
+	- def not_number_rejector(message):		while/try/exceopt
+	- def super_asker(low, high):			nested function, while/if/break
+
+Exercise 2
+	1 code						0/1
+Exercise 3
+	2 code						0/2
+Exercise 4
+	1 code						1/1
+	- def binary_search(low, high, actual_number):	while loop와 if/elif 컨디션 사용 - 열쇠는 current/current_low/current_height/평균값을 current로 돌리기
+
+Week4
+Exercise 1
+	4 code						3/4
+	- def getsomedetails():	 Show how to open/load json file and return the content from file
+	- def diarist():	with/as 
+	- def wordyPyramid:		Generate random words from url and make pyramid [inclue parse. I don't understand]
+	- 
+Hangman leaderboard 			5/5		hangman_leaderboard_ownUnderstanding.txt 읽기
+	5 code
+	- 
+Hangman leaderboard_internet	0/1
+	? code
+	- 좆같은 parse로 가는데 안됨
+IO Examples						
+	5 code						5/5
+	- def be_cool(name):
+	- def be_cool_for_ever(name, file_path):
+	- def who_is_cool(file_path):
+	- def bury_time_capsule(something_for_your_kids_to_find, file_path):
+	- def dig_up_capsule(file_path):		try: , json을 읽고 

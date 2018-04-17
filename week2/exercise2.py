@@ -1,4 +1,5 @@
 """Correct the syntax in this file.
+
 This file doesn't run yet.
 Go through it and change it until it runs.
 """
@@ -7,7 +8,6 @@ import string
 def getLetter(index):
     alphabet = string.ascii_lowercase + " "
     return alphabet[index]
-
 
 
 def week2exersise2():
