@@ -17,7 +17,8 @@ def greet(name="Towering Timmy"):
     return a string of "Hello" and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    pass
+    #pass
+    return "Hello " + name
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -26,7 +27,8 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-    pass
+    # pass
+    return input_list.count(int(3))
 
 
 def fizz_buzz():
@@ -45,6 +47,19 @@ def fizz_buzz():
     """
     fizzBuzzList = []
     # your code here
+    for i in range (1, 101):
+        fizzBuzzList.append(i)
+    
+        multiple3 = int(i*3)
+        multiple5 = int(i*5)
+        for p in range (multiple3):
+            fizzBuzzList[p] = "Fizz"
+        for p in rnage (multiple5):
+            fizzBuzzList[p] = "Buzz"
+ 
+        
+
+
     return fizzBuzzList
 
 
@@ -57,7 +72,11 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: conside using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-    pass
+    # pass
+    list1=input_string.split()
+
+    return put_behind_bars
+
 
 
 def pet_filter(letter="a"):
